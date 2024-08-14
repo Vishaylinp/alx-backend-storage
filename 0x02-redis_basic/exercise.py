@@ -25,7 +25,7 @@ class Cache:
             ) -> Union[str, bytes, int, float]:
         """Get value from Redis data storage"""
         data = self._redis.get(key)
-        return fn(data) if fn iss not None else data
+        return fn(data) if fn is not None else data
 
     def get_str(self, key: str) -> str:
         """Gets a string"""
