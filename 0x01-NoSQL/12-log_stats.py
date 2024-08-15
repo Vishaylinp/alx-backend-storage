@@ -11,7 +11,9 @@ def print_nginx_log(mongo_collection):
     for method in type_of_methods:
         count_req = len(list(mongo_collection.find({"method": method})))
         print("\tmethod {}: {}".format(method, count_req))
-    count_status_checks = len(list(mongo.collection.find({"method": "GET", "path": "/status"})))
+    count_status_checks = len(list(
+        mongo_collection.find({"method": "GET", "path": "/status"})
+    ))
     print("{} status check".format(count_status_checks))
 
 
